@@ -62,4 +62,6 @@ exclude: null
 ignore: null
 theme: icarus
 deploy:
-  type: ''
+  type: 'git'
+  repo: git@github.com:WYDgits/WYDgits.github.io.git
+  branch: master
