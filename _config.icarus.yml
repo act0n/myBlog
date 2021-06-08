@@ -206,11 +206,7 @@ widgets:
         # Author's current location
         location: ShangHai,China
         # URL or path to the avatar image
-<<<<<<< HEAD
         avatar: http://www.wydgit.top/img/my_avatar.jpg
-=======
-        avatar: /img/my_avatar.jpg
->>>>>>> 3d899a7926f9fe530a73680e3e9facb65c5059a4
         # Whether show the rounded avatar image
         avatar_rounded: false
         # Email address for the Gravatar
