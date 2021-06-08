@@ -6,7 +6,6 @@ author: adyoow
 language: zh-CN
 timezone: ''
 url: http://wydgit.top
-#permalink: ':year/:month/:day/:title/'
 permalink: ':title/'
 permalink_defaults: null
 pretty_urls:
@@ -62,6 +61,6 @@ exclude: null
 ignore: null
 theme: icarus
 deploy:
-  type: 'git'
+  type: git
   repo: git@github.com:WYDgits/WYDgits.github.io.git
   branch: master
