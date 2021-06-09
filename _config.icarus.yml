@@ -3,11 +3,11 @@ version: 4.0.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
 # Path or URL to the website's logo
-logo: http://www.wydgit.top/img/snow.png
+logo: https://cdn.wydgit.top/blog/snow.png
 # Page metadata configurations
 head:
     # URL or path to the website's icon
-    favicon: http://www.wydgit.top/img/snow.png
+    favicon: https://cdn.wydgit.top/blog/snow.png
     # Web application manifests configuration
     # https://developer.mozilla.org/en-US/docs/Web/Manifest
     manifest:
@@ -179,7 +179,7 @@ search:
 share:
     type: sharethis
     # URL to the ShareThis share plugin script
-    install_url: 'http://wydgit.top'
+    install_url: ''
 # Sidebar configurations.
 # Please be noted that a sidebar is only visible when it has at least one widget
 sidebar:
@@ -206,7 +206,7 @@ widgets:
         # Author's current location
         location: ShangHai,China
         # URL or path to the avatar image
-        avatar: http://www.wydgit.top/img/my_avatar.jpg
+        avatar: https://cdn.wydgit.top/blog/my_avatar.jpg
         # Whether show the rounded avatar image
         avatar_rounded: false
         # Email address for the Gravatar
