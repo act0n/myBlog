@@ -39,7 +39,7 @@ head:
     open_graph:
         # Page title (og:title) (optional)
         # You should leave this blank for most of the time
-        title:  
+        title:  (>_<)
        # Page type (og:type) (optional)
         # You should leave this blank for most of the time
         type: blog
@@ -176,10 +176,10 @@ search:
         #qrcode: ''
 # Share plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
-share:
-    type: sharethis
+#share:
+    #type: ''
     # URL to the ShareThis share plugin script
-    install_url: ''
+    #install_url: ''
 # Sidebar configurations.
 # Please be noted that a sidebar is only visible when it has at least one widget
 sidebar:
