@@ -2,13 +2,14 @@
 title: vue跨域配置解析
 toc: true
 categories:
-  - vue
+  - Config Share
 tags:
-  - cross-domin
-  - vue
+  - Cross-domin
+  - Vue
 date: 2021-07-12 17:06:49
 ---
 ## 前言
+
 `跨域`这个问题其实老生常谈了，简单来讲就是，浏览器由于`同源策略`规定，AJAX请求只能发给同源的网址，否则就报错。
 
 所谓`同源`，就是**域名**、**协议**、**端口**相同。
@@ -44,7 +45,7 @@ list.vue?61b8:36 Error: Network Error
 
 接下来让我们解决这个问题。
 
-## vue2
+## Vue2
 
 ### 配置BaseUrl
 
@@ -87,7 +88,7 @@ new Vue({
 
 这段代码，`vue-cli`启动了`http-proxy-middleware`代理服务。
 
-第一个`/test`，相当于是当请求链接遇到`/test`时，会将`/test`拼接到`target`的链接下：
+第一个`/test`，相当于是当请求链接遇到`/test`时，会将`/test`拼接到`target`的链接下，比如我们在写`axios`请求的时候，只用写成`/test/1`就可以代表`https://www.baidu.com/test/1`。
 
 ```
 // 举例  原先的请求
@@ -133,9 +134,7 @@ this.$axios.get("/")
 {data: "<!DOCTYPE html><!--STATUS OK-->\n\n\n    <html><head>…5a9387c5b.js\"></script>\n</body>\n        \n\t</html>", status: 200, statusText: "OK", headers: {…}, config: {…}, …}
 ```
 
-
-
-## vue3
+## Vue3
 
 基本上跟vue2一样，只是配置代理的时候有点不同。
 

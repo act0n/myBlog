@@ -2,10 +2,12 @@
 title:  Express中配置https
 date: 2021-05-01 16:34:21
 toc: true
+categories:
+  - Config Share
 tags:
- - express
- - https
- - nodejs
+ - Express
+ - Https
+ - Node
 ---
 
 > 微信小程序要想发布就需要配置域名，而且必须是https，所以就根据自己的探索经历记录下来

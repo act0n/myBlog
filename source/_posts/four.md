@@ -2,10 +2,11 @@
 title: 计算机网络基础知识
 date: 2020-02-28 21:35:52
 toc: true
-categories: NetWork
+categories: 
+  - Course Notes
 excerpt: (^_^)
 tags:
-  - 计算机网络
+  - Network
 ---
 
 

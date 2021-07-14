@@ -2,12 +2,14 @@
 title: 数据结构笔记
 date: 2020-03-22 20:57:34
 toc: true
-categories: Fighting
+categories: 
+  - Course Notes
 tags:
-   - 数据结构
+ - Data Structure
 ---
 
 # 数据结构
+
 >*“唯一可以确定的是，明天会使我们所有人大吃一惊”*  ——*阿尔文·托夫勒*
 
 <!-- more -->

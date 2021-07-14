@@ -3,7 +3,8 @@ title: 解决Hexo引入图片时的路径错误
 date: 2020-02-28 23:32:21
 toc: true
 excerpt: (^_^)
-categories: Hexo
+categories:
+  - Config Share
 tags:
   - Hexo
 ---

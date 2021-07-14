@@ -2,7 +2,8 @@
 title: Flex布局详解
 date: 2020-02-28 18:06:14
 toc: true
-categories: CSS
+categories:
+  - Front-end Study
 tags:
   - CSS
   - Flex

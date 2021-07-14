@@ -245,12 +245,13 @@ widgets:
     
     # Tags widget configurations
     -
+        position: right
+        type: categories
+    -
         # Where should the widget be placed, left sidebar or right sidebar
         position: right
         type: tags
-    #-
-        #position: right
-        #type: categories
+
     # Google FeedBurner email subscription widget configurations
     #-
         # Where should the widget be placed, left sidebar or right sidebar

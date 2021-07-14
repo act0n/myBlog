@@ -2,7 +2,8 @@
 title: FTP、SFTP、SCP的区别
 date: 2020-02-28 21:03:58
 toc: true
-categories: NetWork
+categories:
+  - Study Share
 excerpt: (^_^)
 tags: 
   - FTP

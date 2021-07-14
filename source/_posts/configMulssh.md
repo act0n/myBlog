@@ -2,11 +2,11 @@
 title: 如何配置多个ssh的id_rsa
 date: 2021-05-02 10:58:56
 toc: true
-categories:
- - linux
+categories: 
+  - Config Share
 tags:
- - ssh
- - linux
+ - SSH
+ - Linux
 ---
 
 

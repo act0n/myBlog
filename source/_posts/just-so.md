@@ -2,7 +2,7 @@
 title: 随便写写
 date: 2021-01-05 16:41:14
 toc: true
-tags:
+tags: Others
 ---
 
 > 2020结束了，考研也结束了;

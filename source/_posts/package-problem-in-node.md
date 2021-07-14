@@ -3,10 +3,10 @@ title: nodejs中的package.json相关问题
 toc: true
 date: 2021-07-12 10:51:37
 categories:
-  - nodejs
+  - Study Share
 tags:
-  - nodejs
-  - npm
+  - Node
+  - NPM
 ---
 
 将之前遇到的一些关于node工程目录的问题总结一下，偶尔看看来加深印象，未来会持续更新内容。
@@ -67,5 +67,4 @@ node项目的package.json文件列出了项目所依赖的插件和库，同时�
 ### 总结
 
 项目中引入的包版本号之前经常会加`^`，每次在执行`npm install`之后，下载的包都会发生变化，为了系统的稳定性考虑，每次执行完`npm install`之后会创建或者更新package-lock文件。该文件记录了上一次安装的具体的版本号，相当于是提供了一个参考，在出现版本兼容性问题的时候，就可以参考这个文件来修改版本号即可。
-
 

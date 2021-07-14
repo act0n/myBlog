@@ -2,12 +2,13 @@
 title: Sublime Text3 配置C、C++环境，并且能调用cmd
 date: 2021-03-21 11:24:58
 toc: true
-categories: C++
+categories:
+  - Config Share
 excerpt: (^_^)
 tags:
 	- C++
 	- C
-	- sublime
+	- Sublime
 ---
 
 

@@ -3,9 +3,9 @@ title: Windows配置nvm所遇到的一些问题
 toc: true
 date: 2021-07-08 15:36:59
 categories:
- - node
+  - Config Share
 tags:
- - nvm
+ - NVM
 ---
 
 

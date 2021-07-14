@@ -2,11 +2,11 @@
 title: 如何更好地使用hexo发布博客
 toc: true
 date: 2021-07-08 15:38:08
-categories:
- - Hexo
+categories: 
+  - Config Share
 tags:
- - Hexo
- - Markdown
+  - Hexo
+  - Markdown
 ---
 
 为了方便在`Hexo`自己撰写并且发布博客，将自己的一些技巧和配置分享一下

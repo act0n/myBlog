@@ -2,7 +2,8 @@
 title: Hexo + Docker 搭建博客
 date: 2020-02-28 17:48:27
 toc: true
-categories: Docker
+categories: 
+  - Study Share
 excerpt: (^_^)
 tags: 
   - Docker
@@ -18,7 +19,7 @@ tags:
 ## 安装好hexo
 >安装：<code>npm install hexo-cli -g</code>
 >
->初始化搭建：<code>npm init myBlog</code>,myBlog 是自己设置的名字，即为生成的文件夹
+>初始化搭建：<code>hexo init myBlog</code>,myBlog 是自己设置的名字，即为生成的文件夹
 >
 >进入文件夹，添加依赖：<code>cd myBlog</code> <code>npm install</code>
 >
@@ -53,7 +54,9 @@ tags:
 2. `docker start myBlog`
 
 # 扩展--更换主题
+
 ## 了解主题目录结构
+
 >myBlog  //博客根目录
 >>_config.yml  //博客配置文件
 >>themes  //主题目录
@@ -88,6 +91,28 @@ tags:
 
 另外，如果想了解更多关于hexo执行的指令，可以查看[hexo中文网-指令](https://hexo.io/zh-cn/docs/commands)
 
+## 缺点
+
+使用`material`主题的话，我们的主题配置文件是在对应的主题目录下的，我们上传到GitHub上面的话，这个主题文件会被舍弃，所以就很麻烦：我们辛辛苦苦配置的内容需要重新下载安装。
+
+因此，我就更换主题为：`icarus`。
+
+它的配置目录就在博客根目录，如果其他主题也可以这样设置的话，推荐使用这种。
+
+```
+|-- node_modules/
+|-- public/
+|-- scaffolds/
+|-- source/
+|-- themes/
+|-- _config.icarus.yml  //对应主题配置文件
+|-- _config.post.yml    //对应发表博文的配置文件
+|-- _config.yml         //对应网站系统配置文件
+```
+
+
+
 # 参考资料
+
 >[Linux下使用Hexo搭建github博客](https://blog.csdn.net/u010725842/article/details/80672739)
 >[最全Hexo博客搭建+主题优化+插件配置+常用操作+错误分析](https://www.simon96.online/2018/10/12/hexo-tutorial/)

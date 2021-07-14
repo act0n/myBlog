@@ -2,12 +2,11 @@
 title: uni-app学习基础
 date: 2021-02-01 15:05:00
 toc: true
-excerpt: (^_^)
 categories:
-        - uni-app
+  - Front-end Study
 tags:
-        - Vue.js
-        - 微信小程序
+ - Vue
+ - Uni-app
 
 ---
 
@@ -19,8 +18,9 @@ tags:
 
 - 通过HBuilderX可视化界面
   - 不多介绍
-
 - 通过vue-cli命令行
+
+<!-- more -->
 
 ### 1.2脚手架搭建项目
 

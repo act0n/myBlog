@@ -4,9 +4,9 @@ date: 2020-01-27 23:44:21
 toc: true
 excerpt: (^_^)
 categories: 
-  - 其他
+  - Course Notes
 tags:
-  - 其他
+  - Others
 ---
 
 

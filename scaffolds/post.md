@@ -3,9 +3,13 @@ title: {{ title }}
 date: {{ date }}
 toc: true
 categories:
- - Hexo
+  - Course Notes
+  - Study Share
+  - DevOps Record
+  - Front-end Study
+  - Config Share
 tags:
- - Hexo
+  - Hexo
 ---
 
 <!-- more -->

@@ -3,11 +3,11 @@ title: Docker笔记总结
 date: 2020-03-15 14:11:39
 toc: true
 excerpt: (^_^)
-categories:
-	- Docker
+categories: 
+  - Study Share
 tags:
-	- Docker
-	- Linux
+  - Docker
+  - Linux
 ---
 
 
@@ -81,7 +81,7 @@ tags:
 	- 参数说明：
 		- -i：保持容器运行。通常与-t同时使用。加入it这两个参数后，容器创建后自动进入容器中，退出容器后，容器自动关闭。
 		- -t：为容器重新分配一个伪输入终端，通常与-i同时使用。
-		- -d:以守护（后台）模式运行容器。创建一个容器在后台运行，需要使用`docker exec`进入容器。退出时，容器不会关闭。
+		- -d：以守护（后台）模式运行容器。创建一个容器在后台运行，需要使用`docker exec`进入容器。退出时，容器不会关闭。
 		- -it：创建的容器一般称为**交互式容器**。
 		- -id：创建的容器一般称为**守护式容器**。
 		- --name：为创建的容器命名。
@@ -143,11 +143,11 @@ tags:
 ### 配置数据卷容器
 - 创建启动c3数据卷容器，使用`-v`参数设置数据卷
 
-		docker run -it --name-=c3 -v /volume centos:7 /bin/bash
+		docker run -it --name=c3 -v /volume centos:7 /bin/bash
 - 创建启动c1 c2数据卷容器，使用`-volumes-from`参数设置数据卷
 
-		docker run -it --name-=c1 -volumes-from c3 centos:7 /bin/bash
-		docker run -it --name-=c2 -volumes-from c3 centos:7 /bin/bash
+		docker run -it --name=c1 -volumes-from c3 centos:7 /bin/bash
+		docker run -it --name=c2 -volumes-from c3 centos:7 /bin/bash
 
 # Docker应用部署
 ## MySQL部署
@@ -332,38 +332,50 @@ tags:
 ## Dockerfile关键字
 *列举一些常用的*
 
+- `FROM <image name>`: 指定构建使用的基础镜像
+  - 例: `FROM ubuntu:14.04`
+- `MAINTAINER <author name>`: 创建者信息
+  - 例: `MAINTAINER adyo "xxxx@qq.com"`
+- `ENV`: 设置环境变量
+  - 例: `ENV REFRESHED _AT 2017-03-16`
+- `RUN <command>`: 在shell或者exec的环境下执行一条命令.`RUN`指令会在新创建的镜像上添加新的层面，接下来提交的结果可以用在Dockerfile的下一条指令中
+  - 例: `RUN apt-get -yqq update`
+- `ADD <source> <destination>`: 从当前目录复制文件到容器, source可以是URL或者是启动配置上下文中的一个文件, destination是容器内的路径. 会自动处理目录, 压缩包等情况
+  - 例: ``
+- `COPY <source> <destination>`: 从当前目录复制文件到容器. 只是单纯地复制文件.
+  - 例：`COPY index.html /var/www/html`
+- `VOLUME [ "/data" ]`: 声明一个数据卷, 可用于挂载, `[]`里面是路径
+  - 例: `VOLUME [ "/var/lib/redis", "/var/log/redis" ]`
+- `USER <uid>`: 镜像正在运行时设置的一个UID,`RUN`命令执行时的用户
+- `WORKDIR`: 指定`RUN`、`CMD`与`ENTRYPOINT`命令的工作目录
+  - 例: `WORKDIR /opt/nodeapp`
+- `ONBUILD`: 前缀命令, 放在上面这些命令前面, 表示生成的镜像再次作为"基础镜像"被用于构建时要执行的命令
+- `ENTRYPOINT`: 配置给容器一个可执行的命令,这意味着在每次使用镜像创建容器时一个特定的应用程序可以被设置为默认程序.同时也意味着该镜像每次被调用时仅能运行指定的应用.类似于`CMD`,`Docker`只允许一个`ENTRYPOINT`,多个`ENTRYPOINT`会只执行最后的`ENTRYPOINT`指令
+  - 例: `ENTRYPOINT [ "nodejs", "server.js" ]`
+- `CMD`: 提供了容器默认的执行命令,Dockerfile只允许使用一次CMD指令. 使用多个CMD只有最后一个指令生效
+  - 例: `CMD [ "/bin/true" ]`
+- `EXPOSE <port>`: 指定容器在运行时监听的端口
+  - 例: `EXPOSE 3000`
 
-| 关键字      | 作用                     | 备注                                                         |
-| ----------- | ------------------------ | ------------------------------------------------------------ |
-| FROM        | 指定父镜像               | 指定dockerfile基于那个image构建                              |
-| MAINTAINER  | 作者信息                 | 用来标明这个dockerfile谁写的                                 |
-| LABEL       | 标签                     | 用来标明dockerfile的标签 可以使用Label代替Maintainer 最终都是在docker image基本信息中可以查看 |
-| RUN         | 执行命令                 | 执行一段命令 默认是/bin/sh 格式: RUN command 或者 RUN ["command" , "param1","param2"] |
-| CMD         | 容器启动命令             | 提供启动容器时候的默认命令 和ENTRYPOINT配合使用.格式 CMD command param1 param2 或者 CMD ["command" , "param1","param2"] |
-| ENTRYPOINT  | 入口                     | 一般在制作一些执行就关闭的容器中会使用                       |
-| COPY        | 复制文件                 | build的时候复制文件到image中                                 |
-| ADD         | 添加文件                 | build的时候添加文件到image中 不仅仅局限于当前build上下文 可以来源于远程服务 |
-| ENV         | 环境变量                 | 指定build时候的环境变量 可以在启动的容器的时候 通过-e覆盖 格式ENV name=value |
-| ARG         | 构建参数                 | 构建参数 只在构建的时候使用的参数 如果有ENV 那么ENV的相同名字的值始终覆盖arg的参数 |
-| VOLUME      | 定义外部可以挂载的数据卷 | 指定build的image那些目录可以启动的时候挂载到文件系统中 启动容器的时候使用 -v 绑定 格式 VOLUME ["目录"] |
-| EXPOSE      | 暴露端口                 | 定义容器运行的时候监听的端口 启动容器的使用-p来绑定暴露端口 格式: EXPOSE 8080 或者 EXPOSE 8080/udp |
-| WORKDIR     | 工作目录                 | 指定容器内部的工作目录 如果没有创建则自动创建 如果指定/ 使用的是绝对地址 如果不是/开头那么是在上一条workdir的路径的相对路径 |
-| USER        | 指定执行用户             | 指定build或者启动的时候 用户 在RUN CMD ENTRYPONT执行的时候的用户 |
-| HEALTHCHECK | 健康检查                 | 指定监测当前容器的健康监测的命令 基本上没用 因为很多时候 应用本身有健康监测机制 |
-| ONBUILD     | 触发器                   | 当存在ONBUILD关键字的镜像作为基础镜像的时候 当执行FROM完成之后 会执行 ONBUILD的命令 但是不影响当前镜像 用处也不怎么大 |
-| STOPSIGNAL  | 发送信号量到宿主机       | 该STOPSIGNAL指令设置将发送到容器的系统调用信号以退出。       |
-| SHELL       | 指定执行脚本的shell      | 指定RUN CMD ENTRYPOINT 执行命令的时候 使用的shell         |
+**附加：**
+
+如果对与`ADD` 与 `COPY`有疑惑或者不太会区分的话，可以参考此篇文章，这篇文章讲得很细节了：
+
+[Docker ADD vs. COPY: What are the Differences?](https://phoenixnap.com/kb/docker-add-vs-copy)
 
 ## 制作自定义centos镜像
+
 ### 自定义需求
 - 默认登录路径为`/usr`
 - 可以使用vim
 ### 操作
 - 创建编辑dockerfile文件
 
-		mkdir /root/dockerfile
-		cd dockerfile
-		vim centos_dockerfile
+	```bash
+	mkdir /root/dockerfile
+	cd dockerfil
+	vim centos_dockerfile
+	```
 	- 定义父镜像：`FROM centos:7`
 	- 定义作者信息：`MAINTAINER adongyo <adongyo@it.cn>`
 	- 执行安装vim命令：`RUN yum install -y vim`
@@ -371,10 +383,16 @@ tags:
 	- 定义容器启动执行的命令：`CMD /bin/bash`
 - 执行命令
 		
-		docker build -f ./centos_dockerfile -t myCentos:1 .
+	```bash
+	docker build -f ./centos_dockerfile -t myCentos:1 .
+	```
 	- 参数说明：	
 		- -f： 指定dockerfile文件
 		- -t： 设置生成的新的镜像的名称
 		- **.**： 别漏了后面还有一个'.'
+
+
+
 # 参考资料
+
 - [b站转载黑马程序员](https://www.bilibili.com/video/av89009239)

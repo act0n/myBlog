@@ -2,10 +2,11 @@
 title: electron + Vue 初体验
 date: 2020-03-27 16:34:55
 toc: true
-categories: JS
+categories:
+  - Front-end Study
 tags:
 	- Vue
-	- electron
+	- Electron
 ---
 >针对Windows设备，使用electron有两种方法，一种是直接安装[electron-quick-start](https://github.com/electron/electron-quick-start)，另一种是在Vue的脚手架中安装`electron`和`electron-packager`来实现目的。这里使用的是后者，因人而异。
 
@@ -14,6 +15,7 @@ tags:
 <!-- more -->
 
 ## 准备
+
 ### Node和Vue的安装
 可以参考这篇文章[npm的安装教程](https://www.cnblogs.com/adongyo/p/11218054.html)
 
