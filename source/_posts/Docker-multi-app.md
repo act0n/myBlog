@@ -205,7 +205,7 @@ todo 应用程序支持设置一些环境变量来指定 MySQL 连接设置。�
 1. 我们将指定上面的每个环境变量，并将容器连接到我们的应用程序网络。
 
    ```bash
-   docker run -dp 3000:3000 \
+   docker run -dp 8888:3000 \
      -w /app -v "$(pwd):/app" \
      --network todo-app \
      -e MYSQL_HOST=mysql \
@@ -254,7 +254,7 @@ todo 应用程序支持设置一些环境变量来指定 MySQL 连接设置。�
    [nodemon] watching dir(s): *.*
    [nodemon] starting `node src/index.js`
    Connected to mysql db at host mysql
-   Listening on port 3000
+   Listening on port 8888
    ```
 
 4. 在浏览器中输入：`http://localhost:8888/`打开该应用程序，并输入一些字符串添加到你的待办事项列表中。
@@ -349,7 +349,7 @@ docker run -dp 8888:3000 `
 1. 首先，让我们为容器定义服务条目和图像。我们可以为服务选择任何名称。该名称将自动成为网络别名，这在定义我们的 MySQL 服务时会很有用。
 
    ```
-   version: "3.7"
+   version: "3.8"
    
    services:
      app:
@@ -359,7 +359,7 @@ docker run -dp 8888:3000 `
 2. 通常，你会在`image`定义附近看到命令，尽管对排序没有要求。所以，让我们继续把它移到我们的文件中。
 
    ```
-   version: "3.7"
+   version: "3.8"
    
    services:
      app:
@@ -370,7 +370,7 @@ docker run -dp 8888:3000 `
 3. 让我们`-p 8888:3000`通过`ports`为服务定义来迁移命令的一部分。我们将在这里使用[短语法](https://docs.docker.com/compose/compose-file/#short-syntax-1)，但也有更详细的[长语法](https://docs.docker.com/compose/compose-file/#long-syntax-1)可用。
 
    ```
-   version: "3.7"
+   version: "3.8"
    
    services:
      app:
@@ -385,7 +385,7 @@ docker run -dp 8888:3000 `
    Docker Compose 卷定义的优点之一是我们可以使用当前目录的相对路径。
 
    ```
-   version: "3.7"
+   version: "3.8"
    
    services:
      app:
@@ -401,7 +401,7 @@ docker run -dp 8888:3000 `
 5. 最后，我们需要使用`environment`密钥迁移环境变量定义。
 
    ```
-   version: "3.7"
+   version: "3.8"
    
    services:
      app:
@@ -557,7 +557,7 @@ volumes:
    mysql_1  | 2019-10-03T03:07:16.083639Z 0 [Note] mysqld: ready for connections.
    mysql_1  | Version: '5.7.27'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server (GPL)
    app_1    | Connected to mysql db at host mysql
-   app_1    | Listening on port 3000
+   app_1    | Listening on port 8
    ```
 
    服务名称显示在行首（通常是彩色的）以帮助区分消息。如果要查看特定服务的日志，可以在logs 命令的末尾添加服务名称（例如，`docker-compose logs -f app`）。
