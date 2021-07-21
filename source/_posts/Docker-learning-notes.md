@@ -15,21 +15,33 @@ tags:
 # Docker安装部署
 
 ## CentOS
+
 - yum 包更新到最新（花的时间比较多）
 	
-		yum update
+	```bash
+	yum update
+	```
 - 安装需要的软件包，yum-util 提供的yum-config-manager功能，另外两个是devicemapper驱动依赖的
 	
-		yum install -y yum-utils device-mapper-persistent-data lvm2
+	```bash
+	yum install -y yum-utils device-mapper-persistent-data lvm2
+	```
 - 设置yum源
 	
-		yum-confi-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+	```bash
+	yum-confi-manager \
+	--add-repo https://download.docker.com/linux/centos/docker-ce.repo
+	```
 - 安装docker，出现输入的页面都按 y
 	
-		yum install -y docker-ce
+	```bash
+	yum install -y docker-ce
+	```
 - 查看docker版本，验证是否安装成功
 
-		docker -v
+	```bash
+	docker -v
+	```
 
 ### 其他安装方式(推荐)
 
@@ -39,71 +51,161 @@ tags:
 ## Docker服务相关命令
 - 启动docker服务
 
-		systemctl start docker
-		systemctl start docker
+	```bash
+	systemctl start docker
+	systemctl start docker
+	```
 - 停止docker服务
 
-		systemctl stop docker
+	```bash
+	systemctl stop docker
+	```
 - 重启docker服务
 
-		systemctl restart docker
+	```bash
+	systemctl restart docker
+	```
 - 查看docker服务状态
 
-		systemctl status docker
+	```bash
+	systemctl status docker
+	```
 - 设置开机启动docker服务
 
-		systemstl enable docker
+	```bash
+	systemstl enable docker
+	```
 
 ## Docker镜像相关命令
 - 查看镜像：查看本地所有的镜像
 
-		docker images
-		docker images -q # 查看所有镜像id
+	```bash
+	docker images
+	docker images -q # 查看所有镜像id
+	```
 - 搜索镜像：从网络中查找需要的镜像
 
-		docker search 镜像名称
+	```bash
+	docker search 镜像名称
+	```
 - 拉取镜像：从docker仓库下载镜像到本地，镜像名称格式为 名称:版本号，如果版本号不指定则是**最新版本**。如果不知道镜像版本，可以去[docker hub](http://hub.docker.com) 搜索对应镜像查看
 
-		docker pull 镜像名称
+	```bash
+	docker pull 镜像名称
+	```
 - 删除镜像
 
-		docker rmi 镜像id
-		docker rmi `docker images -q` # 删除所有本地镜像
+	```bash
+	docker rmi 镜像id
+	docker rmi `docker images -q` # 删除所有本地镜像
+	```
 
 ## Docker容器相关的命令
 - 查看容器
 
-		docker ps # 查看正在运行的容器
-		docker ps -a # 查看所有容器
+	```bash
+	docker ps # 查看正在运行的容器
+	docker ps -a # 查看所有容器
+	```
+	
 - 创建并启动容器
 
-		docker run 参数
-	- 参数说明：
-		- -i：保持容器运行。通常与-t同时使用。加入it这两个参数后，容器创建后自动进入容器中，退出容器后，容器自动关闭。
-		- -t：为容器重新分配一个伪输入终端，通常与-i同时使用。
-		- -d：以守护（后台）模式运行容器。创建一个容器在后台运行，需要使用`docker exec`进入容器。退出时，容器不会关闭。
-		- -it：创建的容器一般称为**交互式容器**。
-		- -id：创建的容器一般称为**守护式容器**。
-		- --name：为创建的容器命名。
+  ```bash
+  docker run 参数
+  docker run \ 
+  --name apache \
+  -v /home/myBlog/public/:/usr/local/apache2/htdocs/ \
+  -p 80:80 \
+  -d httpd
+  ```
+
+  - 参数说明：
+    - --name：为创建的容器命名。
+    - -v：设置数据卷。前者是宿主机的目录，后者是容器内的目录。
+    - -i：保持容器运行。通常与`-t`同时使用。加入it这两个参数后，容器创建后自动进入容器中，退出容器后，容器自动关闭。
+    - -t：为容器重新分配一个伪输入终端，通常与-i同时使用。
+    - -d：以守护（后台）模式运行容器。创建一个容器在后台运行，需要使用`docker exec`进入容器。退出时，容器不会关闭。
+    - -it：创建的容器一般称为**交互式容器**。
+    - -id：创建的容器一般称为**守护式容器**。
+    - -p：端口映射。前者是宿主机端口，后者是容器端口。
+    - httpd：指用`httpd`镜像为基础启动容器。
+
+  ```bash
+  docker run -it --rm ubuntu:16.04 bash
+  ```
+
+  - 参数说明
+    - --rm：这个参数是说容器退出后随之将其删除
+    - ubuntu:16.04：这是指用ubuntu:16.04镜像为基础来启动容器。
+    - bash：放在镜像名后的是命令，这里我们希望有个交互式shell,因此用的是bash。
+
 - 进入容器
 
-		docker exec 容器名称 操作命令等参数  # 退出容器，容器不会关闭 ，而且
-		
-		-例如：我要将查看myblog为名称的容器的路径/usr/local/apache2
-		 docker exec myblog ls /usr/loacl/apache2 
+	```bash
+	docker exec 容器名称 操作命令等参数  # 退出容器，容器不会关闭 ，而且
+	
+	# 例如：我要查看myblog为名称的容器的路径/usr/local/apache2
+	docker exec myblog ls /usr/loacl/apache2 
+	# 例如：我要进入myblog为名称的容器内用bash操作
+	docker exec myblog -it /bin/bash
+	```
+	
+	- 参数说明
+	  - 保持容器运行。通常与`-t`同时使用。加入it这两个参数后，容器创建后自动进入容器中，退出容器后，容器自动关闭。
+	  - -t：为容器重新分配一个伪输入终端，通常与-i同时使用。
+	  - -it：创建的容器一般称为**交互式容器**。
 	
 - 启动容器
 
-		docker start 容器名称
+	```bash
+	docker start 容器名称
+	```
+	
+	
+	
 - 停止容器
 
-		docker stop 容器名称
+	```bash
+	docker stop 容器名称
+	```
+	
+	
+	
 - 删除容器：如果容器是运行状态则删除失败，需要停止容器才能删除
 
-		docker rm 容器名称
+	```bash
+	docker rm 容器名称
+	```
+	
+	
+	
 - 查看容器信息
 
-		docker inspect 容器名称
+	```bash
+	docker inspect 容器名称
+	```
+
+- 导入容器
+
+  ```bash
+  docker import [OPTIONS] file|URL|- [REPOSITORY[:TAG]]
+  # file
+  docker import /path/to/exampleimage.tgz
+  # -
+  cat exampleimage.tgz | docker import - exampleimagelocal:new
+  # URL
+  docker import http://study.163.com/image.tgz example/imagerepo
+  ```
+
+  
+
+- 导出容器
+
+  ```bash
+  docker export 容器名称 > 导出文件名.tar
+  ```
+
+  
 
 # Docker容器的数据卷
 
@@ -165,13 +267,13 @@ tags:
 
 	---
 		docker run -id \
-		--name=c_mysql \
-		-p 3307:3306 \
-		-v $PWD/conf:/etc/mysql/confi.d \
-		-v $PWD/logs:/logs \
-		-v $PWD/data:/var/lib/mysql \
-		-e MYSQL_ROOT_PASSWORD=123456 \
-		mysql:5.6
+		  --name=c_mysql \
+		  -p 3307:3306 \
+		  -v $PWD/conf:/etc/mysql/confi.d \
+		  -v $PWD/logs:/logs \
+		  -v $PWD/data:/var/lib/mysql \
+		  -e MYSQL_ROOT_PASSWORD=123456 \
+		  mysql:5.6
 	- 参数说明：
 		- -p 3307:3306：将容器的3306端口映射到宿主机的3307端口。
 		- -v $PWD/conf:/etc/mysql/confi.d：将主机当前目录下的conf/my.cnf挂载到容器的/etc/mysql/my.cnf。配置目录
@@ -194,10 +296,10 @@ tags:
 
 	---
 		docker run -id \
-		--name=c_tomcat \
-		-p 8080:8080 \
-		-v $PWD:/usr/local/tomcat/webapps \
-		tomcat
+		  --name=c_tomcat \
+		  -p 8080:8080 \
+		  -v $PWD:/usr/local/tomcat/webapps \
+		  tomcat
 	- 参数说明：
 		- -p 8000:8080：将容器的8080端口映射到宿主机的8000端口。
 		- -v $PWD:/usr/local/tomcat/webapps：将主机当前目录挂载到容器的/usr/local/tomcat/webapps。
@@ -211,76 +313,90 @@ tags:
 		docker pull nginx
 - 创建容器，设置端口映射、目录映射
 
-		# 在/root目录下创建nginx目录用于存储nginx数据信息
-		mkdir ~/nginx
-		cd ~/nginx
-		mkdir conf
-		cd conf
-		# 在~/nginx/conf/下创建nginx.conf文件，粘贴下面内容
-		vim nginx.conf
-
+	```bash
+	# 在/root目录下创建nginx目录用于存储nginx数据信息
+	mkdir ~/nginx
+	cd ~/nginx
+	mkdir conf
+	cd conf
+	# 在~/nginx/conf/下创建nginx.conf文件，粘贴下面内容
+	vim nginx.conf
+	```
+	
 	---
-		user  nginx;
-		worker_processes  1;
-		
-		error_log  /var/log/nginx/error.log warn;
-		pid        /var/run/nginx.pid;
-		
-		events {
-		    worker_connections  1024;
-		}
-		
-		http {
-		    include       /etc/nginx/mime.types;
-		    default_type  application/octet-stream;
-		
-		    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-		                      '$status $body_bytes_sent "$http_referer" '
-		                      '"$http_user_agent" "$http_x_forwarded_for"';
-		
-		    access_log  /var/log/nginx/access.log  main;
-		
-		    sendfile        on;
-		    #tcp_nopush     on;
-		
-		    keepalive_timeout  65;
-		
-		    #gzip  on;
-		
-		    include /etc/nginx/conf.d/*.conf;
-		}
-
+	```bash
+	user  nginx;
+	worker_processes  1;
+	
+	error_log  /var/log/nginx/error.log warn;
+	pid        /var/run/nginx.pid;
+	
+	events {
+	    worker_connections  1024;
+	}
+	
+	http {
+	    include       /etc/nginx/mime.types;
+	    default_type  application/octet-stream;
+	
+	    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+	                      '$status $body_bytes_sent "$http_referer" '
+	                      '"$http_user_agent" "$http_x_forwarded_for"';
+	
+	    access_log  /var/log/nginx/access.log  main;
+	
+	    sendfile        on;
+	    #tcp_nopush     on;
+	
+	    keepalive_timeout  65;
+	
+	    #gzip  on;
+	
+	    include /etc/nginx/conf.d/*.conf;
+	}
+	```
+	
 	---
-		docker run -id \
-		--name=c_nginx \
-		-p 81:80 \
-		-v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf \
-		-v $PWD/logs:/var/log/nginx \
-		-v $PWD/html:/usr/share/nginx/html \
-		nginx
-
+	```bash
+	docker run -id \
+	  --name=c_nginx \
+	  -p 81:80 \
+	  -v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf \
+	  -v $PWD/logs:/var/log/nginx \
+	  -v $PWD/html:/usr/share/nginx/html \
+	  nginx
+	```
+	
 	- 参数说明：
 		- -p 81:80：将容器的80端口映射到宿主机的81端口。
-		- v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf：将主机当前目录下的/conf/nginx.conf挂载到容器的/etc/nginx/nginx.conf。配置目录
+		- -v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf：将主机当前目录下的/conf/nginx.conf挂载到容器的/etc/nginx/nginx.conf。配置目录
 		- -v $PWD/logs:/var/log/nginx：将主机当前目录下的logs目录挂载到容器的/var/log/nginx。日志目录
 		- -v $PWD/html:/usr/share/nginx/html：将主机当前目录下的/html挂载到容器的/usr/share/nginx/html。
 
 ## Redis部署
 - 搜索Redis镜像
 
-		docker search redis
+	```bash
+	docker search redis
+	```
 - 拉取Redis镜像
 
-		docker pull redis:5.0
+	```bash
+	docker pull redis:5.0
+	```
 - 创建容器，设置端口映射、目录映射
 
-		docker run -id --name=c_redis -p 6379:6379 redis:5.0
+	```bash
+	docker run -id --name=c_redis -p 6379:6379 redis:5.0
+	```
 	- 参数说明：
 		- -p 6379:6379：将容器的6379端口映射到宿主机的6379端口。
 - 使用外部机器连接redis
 		
 	
-		./redis-cli.exe -h <your ipAddress> -p 6379	
+	```bash
+	./redis-cli.exe -h <your ipAddress> -p 6379	
+	```
 
 # Dockerfile
 ## Docker镜像原理
@@ -312,9 +428,11 @@ tags:
 ## 镜像制作
 - 容器转为镜像
 
-		docker commit 容器id 镜像名称:版本号  # 将容器转换为镜像文件
-		docker save -o 压缩文件名称 镜像名称:版本号  # 将镜像文件打包成压缩文件，之后就能对压缩文件传送了
-		docker load -i 压缩文件名称  # 将压缩文件解压称为镜像文件
+	```bash
+	docker commit 容器id 镜像名称:版本号  # 将容器转换为镜像文件
+	docker save -o 压缩文件名称 镜像名称:版本号  # 将镜像文件打包成压缩文件，之后就能对压缩文件传送了
+	docker load -i 压缩文件名称  # 将压缩文件解压称为镜像文件
+	```
 - Dockerfile
 	
 	- *看下面内容*
@@ -389,10 +507,10 @@ tags:
 	- 参数说明：	
 		- -f： 指定dockerfile文件
 		- -t： 设置生成的新的镜像的名称
-		- **.**： 别漏了后面还有一个'.'
+		- .： 别漏了后面还有一个'.'
 
 
 
 # 参考资料
 
-- [b站转载黑马程序员](https://www.bilibili.com/video/av89009239)
+- [b站转载黑马程序员](https://www.bilibili.com/video/BV1CJ411T7BK)

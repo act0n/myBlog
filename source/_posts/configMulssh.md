@@ -71,6 +71,16 @@ ssh-add ~/.ssh/github_id_Rsa
 ssh-add -l
 ```
 
+或者
+
+```bash
+ssh-agent bash 
+ssh-add ~/.ssh/github_id_Rsa
+ssh-add -l
+```
+
+
+
 ## 配置服务器
 
 ### GitHub
@@ -103,13 +113,13 @@ touch config
 填写转发内容，其中 `IdentityFile` 需要是绝对路径，相对路径会报错
 
 ```
-Host 39.108.179.50
-HostName 39.108.179.50
+Host 39.108.179.50 # 别名，不重要
+HostName 39.108.179.50 # 对应网站的url，重要！
 User root
 IdentityFile ~/.ssh/id_rsa
 
-Host github.com
-HostName github.com
+Host github.com # 别名，不重要
+HostName github.com # 对应网站的url，重要！
 User WYDgits
 IdentityFile ~/.ssh/github_id_rsa
 ```
