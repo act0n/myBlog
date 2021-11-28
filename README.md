@@ -1,4 +1,4 @@
 # myBlog
-
-[demo](http://www.wydgit.top/)
+> 🎸日常笔记和总结
+查看博客效果👉[demo](https://wydgits.github.io/)
 
