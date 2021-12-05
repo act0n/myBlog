@@ -3,11 +3,11 @@ version: 4.0.0
 # Icarus theme variant, can be "default" or "cyberpunk"
 variant: default
 # Path or URL to the website's logo
-logo: https://cdn.wydgit.top/blog/snow.png
+logo: /img/logo.svg
 # Page metadata configurations
 head:
     # URL or path to the website's icon
-    favicon: https://cdn.wydgit.top/blog/snow.png
+    favicon: /img/favicon.svg
     # Web application manifests configuration
     # https://developer.mozilla.org/en-US/docs/Web/Manifest
     manifest:
@@ -217,7 +217,7 @@ widgets:
         social_links:
             Github:
                 icon: fab fa-github
-                url: 'https://github.com/WYDgits'
+                url: 'https://github.com/adyoow'
             Facebook:
                 icon: fab fa-facebook
                 url: 'https://facebook.com'
