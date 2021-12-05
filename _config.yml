@@ -62,5 +62,5 @@ ignore: null
 theme: icarus
 deploy:
   type: git
-  repo: git@github.com:WYDgits/adyo.github.io.git
+  repo: git@github.com:WYDgits/WYDgits.github.io.git
   branch: master
