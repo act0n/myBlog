@@ -1,13 +1,14 @@
 ---
-title: Flex布局详解
-date: 2020-02-28 18:06:14
+title: Flex布局解析
 toc: true
 categories:
   - Front-end Study
 tags:
   - CSS
   - Flex
+date: 2021-12-17 21:06:22
 ---
+
 ## Flex布局是什么
 Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
 
@@ -37,7 +38,9 @@ Webkit内核的浏览器，必须加上-webkit前缀
 
 采用 Flex 布局的元素，称为 Flex 容器（flex container），简称"容器"。它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称"项目"。
 
-![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025659bg2015071004.png)
+![](flex-layout/o_200207025659bg2015071004.png)
+
+
 
 - 容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）
   - 项目默认沿主轴排列；
@@ -59,7 +62,7 @@ Webkit内核的浏览器，必须加上-webkit前缀
 	  flex-direction: row | row-reverse | column | column-reverse;
 	}
 
-![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025707bg2015071005.png)
+![](flex-layout/o_200207025707bg2015071005.png)
 
 它可能有4个值
 
@@ -71,7 +74,7 @@ Webkit内核的浏览器，必须加上-webkit前缀
 ### flex-wrap属性
 默认情况下，项目都排在一条线(又称“轴线”)上。`flex-wrap`属性定义，如果一条轴线排不下，如何换行
 
-![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025807bg2015071006.png)
+![](flex-layout/o_200207025807bg2015071006.png)
 
 	.box{
 	  flex-wrap: nowrap | wrap | wrap-reverse;
@@ -79,13 +82,13 @@ Webkit内核的浏览器，必须加上-webkit前缀
 它可能取三个值
 
 - nowrap（默认）：不换行。
-  ![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025812bg2015071007.png)
+  ![](flex-layout/o_200207025812bg2015071007.png)
 
 - wrap：换行，第一行在上方。
-  ![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025819bg2015071008.jpg)
+  ![](flex-layout/o_200207025819bg2015071008.jpeg)
 
 - wrap-reverse：换行，第一行在下方。
-  ![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025823bg2015071009.jpg)
+  ![](flex-layout/o_200207025823bg2015071009.jpeg)
 
 ### flex-flow属性
 `flex-flow`属性是`flex-direction`属性和`flex-wrap`属性的简写形式，默认值为`row nowrap`。
@@ -99,7 +102,7 @@ justify-content属性定义了项目在主轴上的对齐方式。
 	.box {
 	  justify-content: flex-start | flex-end | center | space-between | space-around;
 	}
-![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025828bg2015071010%20(1).png)
+![](flex-layout/o_200207025828bg2015071010%20.png)
 
 它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。
 
@@ -115,7 +118,7 @@ justify-content属性定义了项目在主轴上的对齐方式。
 	.box {
 	  align-items: flex-start | flex-end | center | baseline | stretch;
 	}
-![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025833bg2015071011.png)
+![](flex-layout/o_200207025833bg2015071011.png)
 
 它可能取5个值，具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。
 
@@ -131,7 +134,7 @@ justify-content属性定义了项目在主轴上的对齐方式。
 	.box {
 	  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
 	}
-![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025837bg2015071012.png)
+![](flex-layout/o_200207025837bg2015071012.png)
 
 它可能取6个值。
 
@@ -154,7 +157,7 @@ order属性定义项目的排列顺序。数值越小，排列越靠前，默认
 	.item {
 	  order: <integer>;
 	}
-![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025840bg2015071013.png)
+![](flex-layout/o_200207025840bg2015071013.png)
 
 ### flex-grow属性
 flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
@@ -163,7 +166,7 @@ flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余�
 	.item {
 	  flex-grow: <number>; /* default 0 */
 	}
-![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025844bg2015071014.png)
+![](flex-layout/o_200207025844bg2015071014.png)
 如果所有项目的`flex-grow`属性都为1，则它们将等分剩余空间（如果有的话)。如果一个项目的`flex-grow`属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
 
 ### flex-shrink属性
@@ -173,7 +176,7 @@ flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间�
 	.item {
 	  flex-shrink: <number>; /* default 1 */
 	}
-![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025848bg2015071015.jpg)
+![](flex-layout/o_200207025848bg2015071015.jpeg)
 如果所有项目的`flex-shrink`属性都为1，当空间不足时，都将等比例缩小。如果一个项目的`flex-shrink`属性为0，其他项目都为1，则空间不足时，前者不缩小。
 
 负值对该属性无效。
@@ -208,7 +211,7 @@ flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间�
 	  align-self: auto | flex-start | flex-end | center | baseline | stretch;
 	}
 
-![](https://images.cnblogs.com/cnblogs_com/adongyo/1643144/o_200207025852bg2015071016.png)
+![](flex-layout/o_200207025852bg2015071016.png)
 
 该属性可能取6个值，除了`auto`，其他都与`align-items`属性完全一致。
 
