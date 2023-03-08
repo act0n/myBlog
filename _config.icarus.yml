@@ -202,7 +202,7 @@ widgets:
         # Author name
         author: adyoow
         # Author title
-        author_title: 整个人都是平平的
+        author_title: emmmmmmmm
         # Author's current location
         location: ShangHai,China
         # URL or path to the avatar image
@@ -212,7 +212,7 @@ widgets:
         # Email address for the Gravatar
         gravatar: 
         # URL or path for the follow button
-        follow_link: 'https://github.com/WYDgits'
+        follow_link: 'https://github.com/adyoow'
         # Links to be shown on the bottom of the profile widget
         social_links:
             Github:

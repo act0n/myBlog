@@ -96,4 +96,4 @@ hexo d  # hexo deploy
 
 也许会让你输入git账号密码，可能是因为我之前有git化这个文件，所以没有输入账号密码。
 
-之后就能够在相应的Git上查看自己的博客了！我的博客为 => [这里](https://wydgits.github.io/)
+之后就能够在相应的Git上查看自己的博客了！我的博客为 => [这里](https://adyoow.github.io/)
