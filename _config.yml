@@ -5,7 +5,7 @@ keywords: null
 author: adyoow
 language: zh-CN
 timezone: ''
-url: 'https://adyooow.github.io/'
+url: 'https://adyoow.github.io/'
 permalink: ':title/'
 permalink_defaults: null
 pretty_urls:
@@ -63,4 +63,6 @@ theme: icarus
 deploy:
   type: git
   repo: git@github.com:adyoow/adyoow.github.io.git
+  # https://github.com/adyoow/adyoow.github.io.git
+  # git@github.com:adyoow/adyoow.github.io.git
   branch: master

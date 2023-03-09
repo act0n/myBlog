@@ -128,8 +128,9 @@ IdentityFile ~/.ssh/github_id_rsa
 
 ```shell
 ssh -T git@github.com
+# ssh -Tv git@github.com 来debug
 # 提示信息
-# Hi WYDgits! You've successfully authenticated, but GitHub does not provide shell access.
+# Hi <yourname>! You've successfully authenticated, but GitHub does not provide shell access.
 ssh root@39.108.179.50
 # 成功的话能够直接登录进去服务器的bash
 ```
