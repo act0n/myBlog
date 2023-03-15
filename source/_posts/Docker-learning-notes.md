@@ -2,7 +2,6 @@
 title: Docker笔记总结
 date: 2020-03-15 14:11:39
 toc: true
-excerpt: (^_^)
 categories: 
   - Study Share
 tags:
@@ -44,6 +43,8 @@ tags:
 	```
 
 ### 其他安装方式(推荐)
+
+<!-- more -->
 
 教程链接：[Here!](https://www.jianshu.com/p/1e5c86accacb)
 # Docker命令

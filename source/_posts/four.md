@@ -4,7 +4,6 @@ date: 2020-02-28 21:35:52
 toc: true
 categories: 
   - Course Notes
-excerpt: (^_^)
 tags:
   - Network
 ---
@@ -15,6 +14,8 @@ tags:
 
 ![1.png](1.png)
 >如果两个计算机是通过交换机进行通信的，直接用数字比特流进行通信。
+<!-- more -->
+
 # 相关术语
 {% asset_img 2.png 这是一个新的博客的图片的说明 %}
 # 信道

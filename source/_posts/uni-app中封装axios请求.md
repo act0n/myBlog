@@ -1,18 +1,14 @@
 ---
 title: uni-app中封装axios请求
 date: 2021-02-01 15:05:39
-excerpt: (^_^)
 categories:
   - Front-end Study
 tags:
  - Vue
  - Axios
  - Uni-app
+ - JavaScript
 ---
-
-
-
-# uni-app中封装axios请求
 
 ## 安装
 
@@ -27,6 +23,8 @@ npm install axios --save
 ```shell
 npm install qs --save
 ```
+
+<!-- more -->
 
 ## 配置
 

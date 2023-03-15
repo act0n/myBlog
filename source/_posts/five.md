@@ -2,7 +2,6 @@
 title: 解决Hexo引入图片时的路径错误
 date: 2020-02-28 23:32:21
 toc: true
-excerpt: (^_^)
 categories:
   - Config Share
 tags:
@@ -25,6 +24,9 @@ tags:
 		npm install hexo-asset-image --save
 
 **但是！插件好像有bug，我的图片路径一直时错误的，而显示不出来！**
+
+<!-- more -->
+
 # 解决
 >打开<code>/node_modules/hexo-asset-image/index.js</code>，将内容更换为下面的代码
 

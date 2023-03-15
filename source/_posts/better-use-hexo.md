@@ -24,6 +24,7 @@ title: {{ title }}
 date: {{ date }}
 toc: true
 categories:
+excerpt: 显示在文章缩略图的 文字
 tags:
 
 ---

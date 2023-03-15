@@ -4,7 +4,6 @@ date: 2020-02-28 17:48:27
 toc: true
 categories: 
   - Study Share
-excerpt: (^_^)
 tags: 
   - Docker
   - Hexo
@@ -30,6 +29,8 @@ tags:
 >生成静态页面并打开本地服务：<code>hexo generate(或hexo g)</code><code>hexo server(或hexo s)</code>
 >
 >根据提示，进入<code>http://localhost:4000/</code> 
+
+<!-- more -->
 
 ## 安装好docker
 >首先需要在自己的Linux服务器上面安装好docker，详细安装过程请查看**[>>>](https://www.runoob.com/docker/ubuntu-docker-install.html )**

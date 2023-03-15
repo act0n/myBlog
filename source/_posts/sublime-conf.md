@@ -4,14 +4,11 @@ date: 2021-03-21 11:24:58
 toc: true
 categories:
   - Config Share
-excerpt: (^_^)
 tags:
 	- C++
 	- C
 	- Sublime
 ---
-
-
 
 # 准备工作
 
@@ -29,7 +26,7 @@ tags:
 
 下载安装完成之后，要记住安装路径，配置的时候要用到
 
-
+<!-- more -->
 
 # 配置工作
 

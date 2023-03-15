@@ -5,8 +5,9 @@ toc: true
 categories:
   - Front-end Study
 tags:
-	- Vue
-	- Electron
+  - Vue
+  - Electron
+  - JavaScript
 ---
 >针对Windows设备，使用electron有两种方法，一种是直接安装[electron-quick-start](https://github.com/electron/electron-quick-start)，另一种是在Vue的脚手架中安装`electron`和`electron-packager`来实现目的。这里使用的是后者，因人而异。
 
