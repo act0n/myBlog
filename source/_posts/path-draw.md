@@ -2,7 +2,6 @@
 title: svg中 path 的路径命令
 toc: true
 categories:
-  - Study Share
   - Front-end Study
 tags:
   - Svg
