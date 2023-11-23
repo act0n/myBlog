@@ -62,7 +62,7 @@ ignore: null
 theme: icarus
 deploy:
   type: git
-  repo: git@github.com:adyoow/adyoow.github.io.git
-  # https://github.com/adyoow/adyoow.github.io.git
+  # repo: git@github.com:adyoow/adyoow.github.io.git
+  repo: https://github.com/adyoow/adyoow.github.io.git
   # git@github.com:adyoow/adyoow.github.io.git
   branch: master
