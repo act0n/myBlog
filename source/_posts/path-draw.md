@@ -1,13 +1,14 @@
 ---
 title: svg中 path 的路径命令
 toc: true
+# categories 允许多个，category 之间根据上下位置排列父子关系
 categories:
   - Front-end Study
+# tags 允许多个，tag 之间互不相关
 tags:
   - Svg
   - Path
 date: 2023-11-23 16:36:34
-
 
 ---
 
