@@ -2,10 +2,11 @@
 title: js实现sleep函数
 toc: true
 categories:
-  - Study Share
   - Front-end Study
 tags:
   - JavaScript
+  - Promise
+  - Generator
 date: 2023-03-19 16:22:06
 ---
 

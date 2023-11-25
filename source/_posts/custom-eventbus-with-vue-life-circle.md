@@ -2,7 +2,6 @@
 title: event-bug结合vue生命周期使用
 toc: true
 categories:
-  - Study Share
   - Front-end Study
 tags:
   - Vue
