@@ -2,7 +2,7 @@
 title: webpack 中 loader 和 plugin 的不同
 toc: true
 categories:
-  - Front-end Stud
+  - Front-end Study
 tags:
   - webpack
 date: 2023-11-25 22:42:46

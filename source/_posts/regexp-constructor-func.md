@@ -2,7 +2,7 @@
 title: 正则表达式构造函数的使用
 toc: true
 categories:
-  - Study Share
+  - Front-end-Study
 tags:
   - JavaScript
   - RegExp

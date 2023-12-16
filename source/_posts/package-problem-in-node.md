@@ -3,7 +3,7 @@ title: nodejs中的package.json相关问题
 toc: true
 date: 2021-07-12 10:51:37
 categories:
-  - Study Share
+  - Front-end-Study
 tags:
   - Node
   - NPM
