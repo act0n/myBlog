@@ -63,6 +63,6 @@ theme: icarus
 deploy:
   type: git
   # repo: git@github.com:adyoow/adyoow.github.io.git
-  repo: https://github.com/adyoow/adyoow.github.io.git
+  repo: https://github.com/act0n/act0n.github.io.git
   # git@github.com:adyoow/adyoow.github.io.git
   branch: master
