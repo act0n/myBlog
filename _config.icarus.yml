@@ -200,7 +200,7 @@ widgets:
         position: left
         type: profile
         # Author name
-        author: adyoow
+        author: act0n
         # Author title
         author_title: I have no idea.
         # Author's current location
