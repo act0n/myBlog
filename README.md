@@ -1,14 +1,14 @@
 # myBlog
 > 🎸日常笔记和总结
 
-查看博客效果👉[demo](https://adyoow.github.io/)
+查看博客效果👉[demo](https://waydez.github.io/)
 
 
 
 ### 下载
 
 ```shell
-git clone https://github.com/adyoow/myBlog.git
+git clone https://github.com/waydez/myBlog.git
 ```
 
 ### 安装⚠️
