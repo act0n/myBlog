@@ -2,10 +2,10 @@ title: 阿东zza
 subtitle: ''
 description: ''
 keywords: null
-author: act0n
+author: waydez
 language: zh-CN
 timezone: ''
-url: 'https://act0n.github.io/'
+url: 'https://waydez.github.io/'
 permalink: ':title/'
 permalink_defaults: null
 pretty_urls:
@@ -63,6 +63,6 @@ theme: icarus
 deploy:
   type: git
   # repo: git@github.com:adyoow/adyoow.github.io.git
-  repo: https://github.com/act0n/act0n.github.io.git
+  repo: https://github.com/waydez/waydez.github.io.git
   # git@github.com:adyoow/adyoow.github.io.git
   branch: master
