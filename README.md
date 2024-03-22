@@ -13,6 +13,8 @@ git clone https://github.com/waydez/myBlog.git
 
 ### 安装⚠️
 
+**要求**：`node.js` >= `12.13.0`
+
 ```shell
 ## 安装依赖
 npm install
