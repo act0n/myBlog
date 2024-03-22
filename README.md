@@ -24,8 +24,6 @@ git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus [-b <v
 
 ### 使用
 
-安装以后，可以使用以下两种方式执行 Hexo：
-
 ```bash
 npx hexo <command>
 ```
