@@ -44,8 +44,8 @@ function Animal(name) {
 Object.defineProperty(Animal.prototype, 'run', {
   value: function() {
   	// 4. 不能通过 new 关键字创建
-    if (!new.target) {
-      throw new TypeError(`Animal.prototype.run cannot be invoked without 'new'`)
+    if (new.target) {
+      throw new TypeError(`Animal.prototype.run cannot be invoked with 'new'`)
     }
     console.log(this.name + ' is running!')
   },
